@@ -1,0 +1,35 @@
+@model CompanyWebPage.ViewModel.NewsleterSubscribeViewModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="offset-3 col-6">
+    <h1>Suscríbase al boletín <img src="~/img/Spain.png" class="newsletter-flag" /></h1>
+</div>
+@if (ViewData.ModelState.Any(x => x.Value.Errors.Any()))
+{
+<div class="offset-3 col-6 alert alert-danger">
+    Errores:<br />
+    @Html.ValidationSummary()
+</div>
+}
+<div class="offset-3 col-6">
+    <form method="POST">
+        <div class="form-group">
+            @Html.LabelFor(model => model.Age)
+            <input type="number" id="Age" name="Age" value="@Model.Age" class="form-control" />
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.FirstName)
+            <input type="text" id="FirstName" name="FirstName" value="@Model.FirstName" class="form-control" />
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.EmailAddress)
+            <input type="email" id="EmailAddress" name="EmailAddress" value="@Model.EmailAddress" class="form-control" />
+        </div>
+        <div class="form-group">
+            <input type="submit" value="Suscríbase" />
+        </div>
+    </form>
+</div>
+
